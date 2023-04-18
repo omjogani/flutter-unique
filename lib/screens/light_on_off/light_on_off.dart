@@ -1,46 +1,33 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_unique/constants/colors.dart';
 import 'package:torch_light/torch_light.dart';
 import 'package:flutter_unique/widgets/switch3d.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class LightOnOff extends StatefulWidget {
+  const LightOnOff({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<LightOnOff> createState() => _LightOnOffState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _LightOnOffState extends State<LightOnOff> {
   bool isLightON = false;
-
-  double _dragAmount = 0;
-
-  void _handleDragUpdate(DragUpdateDetails details) {
-    setState(() {
-      _dragAmount += details.delta.dy;
-    });
-  }
-
-  void _handleDragEnd(DragEndDetails details) {
-    setState(() {
-      _dragAmount = 0;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:
-          isLightON ? const Color(0xFFffe76c) : const Color(0xFFE0E5EC),
+          isLightON ? const Color(0xFFffe76c) : kLightBackgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
               isLightON
-                  ? "assets/images/light-on.png"
-                  : "assets/images/light-off.png",
+                  ? "assets/images/light_on_off/light-on.png"
+                  : "assets/images/light_on_off/light-off.png",
               height: 200.0,
               width: 200.0,
             ),
@@ -49,22 +36,24 @@ class _HomeScreenState extends State<HomeScreen> {
               isSwitchOn: isLightON,
               onSwitchToggle: () async {
                 try {
+                  // Play click sound
                   final player = AudioPlayer();
-                  // await player.setSource(AssetSource('sounds/button-click.mp3'));
                   await player.play(AssetSource('sounds/button-click.mp3'));
                   HapticFeedback.lightImpact();
 
+                  // Toggle Flash Light
                   if (isLightON) {
                     await TorchLight.disableTorch();
                   } else {
                     await TorchLight.enableTorch();
                   }
+
+                  // Update the State of Screen
                   setState(() {
                     isLightON = !isLightON;
                   });
                 } on Exception catch (e) {
-                  // Handle error
-                  print(e);
+                  throw Exception(e);
                 }
               },
             ),

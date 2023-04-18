@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_unique/constants/colors.dart';
 
 class Switch3D extends StatefulWidget {
   const Switch3D({
@@ -14,11 +15,6 @@ class Switch3D extends StatefulWidget {
 }
 
 class Switch3DState extends State<Switch3D> {
-  List<Color> switchGradient = const <Color>[
-    Color(0xFFa0afc5),
-    Color(0xFFd0d7e2),
-    Color(0xFFe0e5ec),
-  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,8 +25,10 @@ class Switch3DState extends State<Switch3D> {
         borderRadius: BorderRadius.circular(15.0),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: widget.isSwitchOn ? Color(0xFFccaa00) : Color(0xFFA3B1C6),
-            offset: Offset(0, 12),
+            color: widget.isSwitchOn
+                ? const Color(0xFFCCAA00)
+                : const Color(0xFFA3B1C6),
+            offset: const Offset(0, 12),
             blurRadius: 16.0,
           ),
         ],
@@ -41,11 +39,11 @@ class Switch3DState extends State<Switch3D> {
           width: 80.0,
           padding: const EdgeInsets.all(12.0),
           decoration: BoxDecoration(
-            color: Color(0xFFE0E5EC),
+            color: kLightBackgroundColor,
             borderRadius: BorderRadius.circular(12.0),
             boxShadow: const <BoxShadow>[
               BoxShadow(
-                color: Color(0xFFA3B1C6),
+                color: kShadowColor,
                 offset: Offset(0, 12),
                 blurRadius: 16.0,
               ),

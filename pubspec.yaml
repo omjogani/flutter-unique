@@ -29,7 +29,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
+    - assets/images/light_on_off/
     - assets/sounds/
 
   
