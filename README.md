@@ -16,6 +16,10 @@
 <a><img src="https://img.shields.io/github/contributors/omjogani/flutter-unique?color=565BDD&style=for-the-badge"/></a>
 </div>
 
+
+
+
+
 ## Technologies
 ---
 [![Flutter](https://img.shields.io/badge/flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)]("https://flutter.dev")
@@ -23,18 +27,7 @@
 
 ## Examples
 ---
-<table>
-  <tr>
-    <td>Spacing between History Chips and <br/><b>Search On Youtube Statement</b></td>
-     <td>After choosing Trending Chip, Cursor is <br/>not moving at the end of word automatically.</td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/72139914/224478260-350810c2-5df2-4de1-9e81-6fe648b06855.jpg" width=270 height=520></td>
-    <td><img src="https://user-images.githubusercontent.com/72139914/224478260-350810c2-5df2-4de1-9e81-6fe648b06855.jpg" width=270 height=520></td>
-  </tr>
- </table>
-
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://github.com/omjogani/flutter-unique/blob/master/showcase/light_on_off.mp4)
+https://user-images.githubusercontent.com/72139914/232694598-ac9f3ed4-b253-44f6-b1a0-7eb77b058e06.mp4
 
 ## LICENSE
 ---
